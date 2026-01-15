@@ -6,3 +6,5 @@ CREATE TABLE Author (author_id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(200)
 
 CREATE TABLE Book (isbn VARCHAR(13) PRIMARY KEY, title VARCHAR(500) NOT NULL, publication_year INT, available_copies INT DEFAULT 0, status VARCHAR(50) DEFAULT 'Available', category_id INT, FOREIGN KEY (category_id) REFERENCES Category(category_id));
 
+CREATE TABLE Book_Author (book_isbn VARCHAR(13), author_id INT, PRIMARY KEY (book_isbn, author_id), FOREIGN KEY (book_isbn) REFERENCES Book(isbn), FOREIGN KEY (author_id) REFERENCES Author(author_id));
+
