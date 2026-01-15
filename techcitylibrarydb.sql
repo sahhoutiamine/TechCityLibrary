@@ -24,3 +24,45 @@ CREATE TABLE Reservation (reservation_id INT PRIMARY KEY AUTO_INCREMENT, member_
 
 CREATE TABLE Payment (payment_id INT PRIMARY KEY AUTO_INCREMENT, member_id INT, amount DECIMAL(10,2), payment_date DATE, payment_method VARCHAR(50), FOREIGN KEY (member_id) REFERENCES Member(member_id));
 
+
+
+
+INSERT INTO Category (name) VALUES 
+('Computer Science'), ('Literature'), ('Science');
+
+INSERT INTO Author (name, nationality, birth_date, primary_genre) VALUES
+('Robert Martin', 'American', '1952-12-05', 'Computer Science'),
+('J.K. Rowling', 'British', '1965-07-31', 'Literature');
+
+INSERT INTO Book (isbn, title, publication_year, available_copies, category_id) VALUES
+('9780132350884', 'Clean Code', 2008, 5, 1),
+('9780747532699', 'Harry Potter', 1997, 8, 2);
+
+INSERT INTO Book_Author (book_isbn, author_id) VALUES
+('9780132350884', 1),
+('9780747532699', 2);
+
+INSERT INTO Library_Branch (name, location, contact_number) VALUES
+('Main Campus', '123 University Ave', '555-0101'),
+('Engineering', '456 Tech Building', '555-0102');
+
+INSERT INTO Branch_Inventory (branch_id, book_isbn, copies) VALUES
+(1, '9780132350884', 3),
+(1, '9780747532699', 5),
+(2, '9780132350884', 2);
+
+INSERT INTO Member (member_type, full_name, email, membership_end_date) VALUES
+('STUDENT', 'Alice Johnson', 'alice@techcity.edu', '2025-12-31'),
+('FACULTY', 'Dr. Carol Williams', 'carol@techcity.edu', '2027-01-01');
+
+INSERT INTO Student_Member (member_id, student_id) VALUES (1, 'STU001');
+INSERT INTO Faculty_Member (member_id, employee_id, department) VALUES (2, 'FAC001', 'CS');
+
+INSERT INTO Borrow_Transaction (member_id, book_isbn, branch_id, borrow_date, due_date) VALUES
+(1, '9780132350884', 1, '2026-01-05', '2026-01-19');
+
+INSERT INTO Reservation (member_id, book_isbn, branch_id, reservation_date, expiry_date) VALUES
+(1, '9780747532699', 1, '2026-01-15', '2026-01-17');
+
+INSERT INTO Payment (member_id, amount, payment_date, payment_method) VALUES
+(1, 5.00, '2026-01-10', 'CASH');
