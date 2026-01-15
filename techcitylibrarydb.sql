@@ -20,3 +20,5 @@ CREATE TABLE Faculty_Member (member_id INT PRIMARY KEY, employee_id VARCHAR(50),
 
 CREATE TABLE Borrow_Transaction (transaction_id INT PRIMARY KEY AUTO_INCREMENT, member_id INT, book_isbn VARCHAR(13), branch_id INT, borrow_date DATE, due_date DATE, return_date DATE, late_fee DECIMAL(10,2) DEFAULT 0, FOREIGN KEY (member_id) REFERENCES Member(member_id), FOREIGN KEY (book_isbn) REFERENCES Book(isbn), FOREIGN KEY (branch_id) REFERENCES Library_Branch(branch_id));
 
+CREATE TABLE Reservation (reservation_id INT PRIMARY KEY AUTO_INCREMENT, member_id INT, book_isbn VARCHAR(13), branch_id INT, reservation_date DATE, expiry_date DATE, status VARCHAR(50) DEFAULT 'PENDING', FOREIGN KEY (member_id) REFERENCES Member(member_id), FOREIGN KEY (book_isbn) REFERENCES Book(isbn), FOREIGN KEY (branch_id) REFERENCES Library_Branch(branch_id));
+
