@@ -22,3 +22,5 @@ CREATE TABLE Borrow_Transaction (transaction_id INT PRIMARY KEY AUTO_INCREMENT, 
 
 CREATE TABLE Reservation (reservation_id INT PRIMARY KEY AUTO_INCREMENT, member_id INT, book_isbn VARCHAR(13), branch_id INT, reservation_date DATE, expiry_date DATE, status VARCHAR(50) DEFAULT 'PENDING', FOREIGN KEY (member_id) REFERENCES Member(member_id), FOREIGN KEY (book_isbn) REFERENCES Book(isbn), FOREIGN KEY (branch_id) REFERENCES Library_Branch(branch_id));
 
+CREATE TABLE Payment (payment_id INT PRIMARY KEY AUTO_INCREMENT, member_id INT, amount DECIMAL(10,2), payment_date DATE, payment_method VARCHAR(50), FOREIGN KEY (member_id) REFERENCES Member(member_id));
+
