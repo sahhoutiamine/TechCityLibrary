@@ -8,3 +8,6 @@ CREATE TABLE Book (isbn VARCHAR(13) PRIMARY KEY, title VARCHAR(500) NOT NULL, pu
 
 CREATE TABLE Book_Author (book_isbn VARCHAR(13), author_id INT, PRIMARY KEY (book_isbn, author_id), FOREIGN KEY (book_isbn) REFERENCES Book(isbn), FOREIGN KEY (author_id) REFERENCES Author(author_id));
 
+CREATE TABLE Library_Branch (branch_id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(200) NOT NULL, location VARCHAR(500), contact_number VARCHAR(20));
+
+
