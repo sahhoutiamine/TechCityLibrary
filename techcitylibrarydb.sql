@@ -17,3 +17,6 @@ CREATE TABLE Member (member_id INT PRIMARY KEY AUTO_INCREMENT, member_type VARCH
 CREATE TABLE Student_Member (member_id INT PRIMARY KEY, student_id VARCHAR(50), FOREIGN KEY (member_id) REFERENCES Member(member_id));
 
 CREATE TABLE Faculty_Member (member_id INT PRIMARY KEY, employee_id VARCHAR(50), department VARCHAR(200), FOREIGN KEY (member_id) REFERENCES Member(member_id));
+
+CREATE TABLE Borrow_Transaction (transaction_id INT PRIMARY KEY AUTO_INCREMENT, member_id INT, book_isbn VARCHAR(13), branch_id INT, borrow_date DATE, due_date DATE, return_date DATE, late_fee DECIMAL(10,2) DEFAULT 0, FOREIGN KEY (member_id) REFERENCES Member(member_id), FOREIGN KEY (book_isbn) REFERENCES Book(isbn), FOREIGN KEY (branch_id) REFERENCES Library_Branch(branch_id));
+
