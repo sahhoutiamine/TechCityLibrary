@@ -13,3 +13,5 @@ CREATE TABLE Library_Branch (branch_id INT PRIMARY KEY AUTO_INCREMENT, name VARC
 CREATE TABLE Branch_Inventory (branch_id INT, book_isbn VARCHAR(13), copies INT DEFAULT 0, PRIMARY KEY (branch_id, book_isbn), FOREIGN KEY (branch_id) REFERENCES Library_Branch(branch_id), FOREIGN KEY (book_isbn) REFERENCES Book(isbn));
 
 CREATE TABLE Member (member_id INT PRIMARY KEY AUTO_INCREMENT, member_type VARCHAR(20) NOT NULL, full_name VARCHAR(200) NOT NULL, email VARCHAR(200) UNIQUE NOT NULL, phone_number VARCHAR(20), membership_end_date DATE, total_borrowed_books INT DEFAULT 0);
+
+CREATE TABLE Student_Member (member_id INT PRIMARY KEY, student_id VARCHAR(50), FOREIGN KEY (member_id) REFERENCES Member(member_id));
