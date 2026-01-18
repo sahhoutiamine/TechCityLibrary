@@ -3,7 +3,7 @@
 
 namespace Repositories;
 
-use Config\Database;
+use Core\Database;
 use Models\BorrowTransaction;
 use PDO;
 use PDOException;

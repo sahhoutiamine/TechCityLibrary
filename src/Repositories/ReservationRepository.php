@@ -3,7 +3,7 @@
 
 namespace Repositories;
 
-use Config\Database;
+use Core\Database;
 use Models\Reservation;
 use PDO;
 use PDOException;

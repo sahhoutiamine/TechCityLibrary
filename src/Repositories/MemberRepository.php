@@ -3,7 +3,7 @@
 
 namespace Repositories;
 
-use Config\Database;
+use Core\Database;
 use Models\Member;
 use Models\StudentMember;
 use Models\FacultyMember;
