@@ -1,5 +1,4 @@
 <?php
-// models/BorrowTransaction.php
 
 namespace Models;
 

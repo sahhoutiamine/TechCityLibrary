@@ -1,5 +1,4 @@
 <?php
-// models/FacultyMember.php
 
 namespace Models;
 
